@@ -13,6 +13,8 @@ use App\Notifications\AdminResetPasswordNotification as AdminResetPasswordNotifi
 class Admin extends Authenticatable
 {
     use Notifiable, HasRoles, SoftDeletes;
+    
+    protected $guard = 'admin';
 
     /**
      * The attributes that are mass assignable.

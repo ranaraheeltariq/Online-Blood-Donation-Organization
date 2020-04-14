@@ -74,4 +74,16 @@ class LoginController extends Controller
         return $this->username;
     }
 
+    /**
+     * Get Logout.
+     *
+     * @return string
+     */
+    public function logout()
+    {
+        Auth::guard('web')->logout();
+        return redirect()
+            ->route('index');
+    }
+
 }

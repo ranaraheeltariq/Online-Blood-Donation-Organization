@@ -30,5 +30,8 @@ Route::get('/password/reset', 'Auth\Admin\ForgotPasswordController@showLinkReque
 Route::post('/password/email', 'Auth\Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
 Route::get('password/reset/{token}', 'Auth\Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
 Route::post('password/reset', 'Auth\Admin\ResetPasswordController@reset')->name('admin.password.update');
-Route::get('/', 'AdminController@index')->name('admin');
+});
+Route::group(['middleware' => 'auth:admin','prefix'=>'admin'], function () {
+    Route::get('/', 'AdminController@index')->name('admin');
+    Route::get('role','AdminController@role')->name('role');
 });
