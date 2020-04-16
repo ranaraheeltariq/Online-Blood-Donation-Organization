@@ -4,7 +4,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="http://demo.themekita.com/azzara/livepreview/assets/img/icon.ico" type="image/x-icon"/>
+    <link rel="icon" href="http://demo.themekita.com/azzara/livepreview/assets/img/icon.ico" type="image/x-icon"/>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @section('css')
 	<!-- Fonts and icons -->
@@ -28,8 +30,17 @@
 <body>
 	<div class="wrapper">
         @include('include.admin.nav')
-
-        @yield('content')
+        <div class="main-panel">
+            <div class="content">
+                <div class="page-inner">
+                    <div class="page-header">
+                        <h4 class="page-title">@yield('title')</h4>
+                        @include('include.admin.breadcum')
+                    </div>
+        @yield('content') 
+                </div>
+            </div>
+        </div>
 @else
 <body class="login">
 	<div class="wrapper wrapper-login">
@@ -103,6 +114,7 @@
 <!-- Sweet Alert -->
 <script src="{{asset('admin-asset')}}/js/plugin/sweetalert/sweetalert.min.js"></script>
 @show
+<script src="{{asset('js')}}/request.js"></script>
 <!-- Azzara JS -->
 <script src="{{asset('admin-asset')}}/js/ready.min.js"></script>
 </body>

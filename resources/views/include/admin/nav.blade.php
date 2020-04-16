@@ -48,7 +48,7 @@
 										<div class="notif-center">
 											<a href="#">
 												<div class="notif-img"> 
-													<img src="../assets/img/jm_denis.jpg" alt="Img Profile">
+													<img src="/images/admin-profile/user.png" alt="Img Profile">
 												</div>
 												<div class="notif-content">
 													<span class="subject">Jimmy Denis</span>
@@ -60,7 +60,7 @@
 											</a>
 											<a href="#">
 												<div class="notif-img"> 
-													<img src="../assets/img/chadengle.jpg" alt="Img Profile">
+													<img src="/images/admin-profile/user.png" alt="Img Profile">
 												</div>
 												<div class="notif-content">
 													<span class="subject">Chad</span>
@@ -72,7 +72,7 @@
 											</a>
 											<a href="#">
 												<div class="notif-img"> 
-													<img src="../assets/img/mlane.jpg" alt="Img Profile">
+													<img src="/images/admin-profile/user.png" alt="Img Profile">
 												</div>
 												<div class="notif-content">
 													<span class="subject">Jhon Doe</span>
@@ -84,7 +84,7 @@
 											</a>
 											<a href="#">
 												<div class="notif-img"> 
-													<img src="../assets/img/talha.jpg" alt="Img Profile">
+													<img src="/images/admin-profile/user.png" alt="Img Profile">
 												</div>
 												<div class="notif-content">
 													<span class="subject">Talha</span>
@@ -134,7 +134,7 @@
 											</a>
 											<a href="#">
 												<div class="notif-img"> 
-													<img src="../assets/img/profile2.jpg" alt="Img Profile">
+													<img src="/images/admin-profile/user.png" alt="Img Profile">
 												</div>
 												<div class="notif-content">
 													<span class="block">
@@ -234,19 +234,38 @@
 					</div>
 					<ul class="nav">
 						<li class="nav-item active">
-							<a href="index.html">
+                        <a href="{{ route('admin') }}">
 								<i class="fas fa-home"></i>
 								<p>Dashboard</p>
 								{{-- <span class="badge badge-count">5</span> --}}
 							</a>
 						</li>
-						<li class="nav-section">
+                        @hasrole('Super Admin')
+                        <li class="nav-section">
+							<span class="sidebar-mini-icon">
+								<i class="fa fa-ellipsis-h"></i>
+							</span>
+							<h4 class="text-section">Settings</h4>
+                        </li>
+                        <li class="nav-item">
+                        <a href="{{route('roles')}}">
+								<i class="fas fa-users-cog"></i>
+								<p>Roles</p>
+							</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('permissions')}}">
+                                    <i class="fas fa-user-lock"></i>
+                                    <p>Permissions</p>
+                                </a>
+                            </li>
+                        @endhasrole
+                        <li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>
 							</span>
 							<h4 class="text-section">Components</h4>
                         </li>
-                        @hasanyrole('Super Admin')
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#base">
 								<i class="fas fa-layer-group"></i>
@@ -303,7 +322,6 @@
 								</ul>
 							</div>
                         </li>
-                        @endhasanyrole
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#forms">
 								<i class="fas fa-pen-square"></i>

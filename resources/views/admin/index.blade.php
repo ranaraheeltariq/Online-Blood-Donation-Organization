@@ -2,32 +2,6 @@
 @section('title','Dashboard')
 
 @section('content')
-<div class="main-panel">
-    <div class="content">
-        <div class="page-inner">
-            <div class="page-header">
-                <h4 class="page-title">@yield('title')</h4>
-                <ul class="breadcrumbs">
-                    <li class="nav-home">
-                    <a href="{{route('admin')}}">
-                            <i class="flaticon-home"></i>
-                        </a>
-                    </li>
-                    <li class="separator">
-                        <i class="flaticon-right-arrow"></i>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#">Base</a>
-                    </li>
-                    <li class="separator">
-                        <i class="flaticon-right-arrow"></i>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#">Line Awesome</a>
-                    </li>
-                </ul>
-            </div>
-
             <!-- Row Card No Padding -->
             <div class="row row-card-no-pd">
                 <div class="col-sm-6 col-md-3">
@@ -115,9 +89,4 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-    </div>
-    
-</div>
 @endsection
